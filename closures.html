@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures by Rup</title>
+    <style>
+        body{
+            background-color: gray;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1> BG color changing by Rup </h1>
+    <button id="Reset" > Reset </button>
+
+    <button id="Orange" > Orange </button>
+
+    <button id="Green" > Green </button>
+</body>
+<script>
+
+
+//not suitable 
+
+// document.querySelector("#Orange").onclick = function(){
+//     document.body.style.backgroundColor = `orange`
+// }
+
+// document.querySelector("#Green").onclick = function(){
+//     document.body.style.backgroundColor = `green`
+// }
+
+
+function clickHandler(BGcolor){
+   // document.body.style.backgroundColor = ` ${BGcolor} `
+
+   return function(){
+    document.body.style.backgroundColor = ` ${BGcolor} `
+   }
+}
+document.getElementById("Reset").onclick = clickHandler("grey")
+
+document.getElementById("Orange").onclick = clickHandler("orange")
+
+document.getElementById("Green").onclick = clickHandler("green")
+</script>
+</html>
